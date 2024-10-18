@@ -8,28 +8,18 @@ my_list = [125, 15, 12, 130, 0, 11, 16, 30, 1, 29]
 
 def bubble_list(list):
 
-    tested_value = 0
-    bigest_value = 0
     list_length = len(list)
 
-    while list_length != 0:
+    while list_length > 0:
 
-        for i in range(len(list)):
+        for i in range(list_length - 1):
 
             tested_value = list[i]
-            print(f"Valeur: {tested_value}")
+            next_value = list[i + 1]
 
-            if i == 0:
-                bigest_value = tested_value
-            elif tested_value > bigest_value:
-                
-                bigest_value = tested_value
-                list.pop(i)
-                list.insert(i+1, bigest_value)
-            elif bigest_value > tested_value:
-                list.pop(i-1)
-                list.insert(i, bigest_value)
-
+            if tested_value > next_value:
+                list[i], list[i+1] = list[i+1], list[i]
+        
         list_length -= 1
 
     return list
